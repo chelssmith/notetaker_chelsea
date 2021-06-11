@@ -1,14 +1,25 @@
 // // look up uuid (util.promisify)
 
-
 const util = require("util");
 const fs = require("fs");
-const {v4:uuidv4} = require("uuid");
+
 
 const writeNote = util.promisify(fs.writeNote);
 const readNote = util.promisify(fs.readNote);
 
-const write 
+class myNote {
+    create() {
+        return writeNote("db/db.json", JSON.stringify)
+    };
+    read() {
+        return readNote("db/db.json")
+    };
+
+    async getNotes() {
+        const savedNotes = await this.read
+    }
+
+};
 
 
 // getNotes() {
@@ -17,3 +28,4 @@ const write
 //  }
 // }
 
+module.exports = new myNote;
